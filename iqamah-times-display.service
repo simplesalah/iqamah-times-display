@@ -1,0 +1,9 @@
+[Unit]
+Description=Launch Chromium on the iqamah times page
+After=network.target
+
+[Service]
+ExecStart=/usr/lib/chromium-browser --kiosk /home/pi/Desktop/iqamah-times-display/index.html
+
+[Install]
+WantedBy=multi-user.target

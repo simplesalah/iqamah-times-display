@@ -1,0 +1,88 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css"> 
+	<meta http-equiv="refresh" content="3600">
+</head>
+
+<div class="salah-times">
+<table>
+	<tr><td></td><td>Athan</td><td>Iqamah</td>
+	<tr>
+		<td>Fajr</td>
+		<td><span id="fajr-athan"></span></td>
+		<td><span id="fajr"></span></td>
+	</tr>
+	<tr>
+		<td>Dhuhr</td>
+		<td><span id="dhuhr-athan"></span></td>
+		<td><span id="dhuhr"></span></td>
+	</tr>
+	<tr>
+		<td>Asr</td>
+		<td><span id="asr-athan"></span></td>
+		<td><span id="asr"></span></td>
+	</tr>
+	<tr>
+		<td>Maghrib</td>
+		<td><span id="maghrib-athan"></span></td>
+		<td><span id="maghrib"></span></td>
+	</tr>
+	<tr>
+		<td>Isha</td>
+		<td><span id="isha-athan"></span></td>
+		<td><span id="isha"></span></td>
+	</tr>
+	<tr>
+		<td>1st Jumu'ah</td>
+		<td colspan="2">Lecture: <span id="english1"></span> <br/>
+		                Khutba: <span id="arabic1"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>2nd Jumu'ah</td>
+		<td colspan="2">Lecture: <span id="english2"></span> <br/>
+		                Khutba: <span id="arabic2"></span>
+		</td>
+	</tr>
+</table>
+</div> 
+
+<div class="events-slideshow">
+<iframe src="https://docs.google.com/presentation/d/SLIDESHOW-ID-HERE/embed?start=true&loop=true&delayms=10000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+
+<script>
+function updateTimes() {
+	var req = new XMLHttpRequest();
+
+	req.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+			var newTimes = JSON.parse(req.responseText);
+
+			document.getElementById("fajr").textContent = newTimes["fajr"];
+			document.getElementById("dhuhr").textContent = newTimes["dhuhr"];
+			document.getElementById("asr").textContent = newTimes["asr"];
+			document.getElementById("maghrib").textContent = newTimes["maghrib"];
+			document.getElementById("isha").textContent = newTimes["isha"];
+			document.getElementById("english1").textContent = newTimes["english1"];
+			document.getElementById("arabic1").textContent = newTimes["arabic1"];
+			document.getElementById("english2").textContent = newTimes["english2"];
+			document.getElementById("arabic2").textContent = newTimes["arabic2"];
+
+			document.getElementById("fajr-athan").textContent = newTimes["fajr-athan"];
+			document.getElementById("dhuhr-athan").textContent = newTimes["dhuhr-athan"];
+			document.getElementById("asr-athan").textContent = newTimes["asr-athan"];
+			document.getElementById("maghrib-athan").textContent = newTimes["maghrib-athan"];
+			document.getElementById("isha-athan").textContent = newTimes["isha-athan"];
+
+	    }
+	};
+
+	req.open("GET", "/?type=json");
+	req.send();
+}
+setInterval(updateTimes, 1000)
+</script>
+
+</html>
