@@ -7,7 +7,7 @@ echo 'Type=Application' >> ~/.config/autostart/iqamah-times-display.desktop
 echo "Exec=/usr/lib/chromium-browser/chromium-browser --kiosk $HOME/iqamah-times-display/index.html" >> ~/.config/autostart/iqamah-times-display.desktop
 
 #Disable screen blanking
-mkdir -p ~/.config/lxsession/LXDE-pi
-echo '@xset s noblank' > ~/.config/lxsession/LXDE-pi/autostart
-echo '@xset -dpms' >> ~/.config/lxsession/LXDE-pi/autostart
-echo '@xset s off' >> ~/.config/lxsession/LXDE-pi/autostart
+sudo mkdir -p /etc/xdg/lxsession/LXDE-pi/
+sudo echo '@xset s noblank' >> /etc/xdg/lxsession/LXDE-pi/autostart
+sudo echo '@xset -dpms' >> /etc/xdg/lxsession/LXDE-pi/autostart
+sudo echo '@xset s off' >> /etc/xdg/lxsession/LXDE-pi/autostart
