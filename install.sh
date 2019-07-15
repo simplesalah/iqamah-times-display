@@ -1,4 +1,9 @@
-sudo cp iqamah-times-display.service /etc/systemd/system/.
-sudo systemctl daemon-reload
-sudo systemctl enable iqamah-times-display.service
-sudo systemctl start iqamah-times-display
+
+#Auto-launch Chromium to iqamah page on boot
+mkdir -p ~/.config/autostart
+cp iqamah-times-display.desktop ~/.config/autostart/.
+
+#Disable screen blanking
+sudo xset s off
+sudo xset -dpms
+sudo xset s noblank
