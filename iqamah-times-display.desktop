@@ -1,4 +1,0 @@
-[Desktop Entry]
-Name=IqamahTimesDisplay
-Type=Application
-Exec=/usr/lib/chromium-browser/chromium-browser --kiosk /home/pi/iqamah-times-display/index.html
