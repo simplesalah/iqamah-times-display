@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Installation started. Please wait..."
+
 #Set base directory
 BASE_DIR=$HOME/iqamah-times-display
 
@@ -9,3 +11,8 @@ echo '[Desktop Entry]' > ~/.config/autostart/iqamah-times-display.desktop
 echo 'Name=IqamahTimesDisplay' >> ~/.config/autostart/iqamah-times-display.desktop
 echo 'Type=Application' >> ~/.config/autostart/iqamah-times-display.desktop
 echo "Exec=$BASE_DIR/launch-display.sh $BASE_DIR/index.html" >> ~/.config/autostart/iqamah-times-display.desktop
+
+#Hide mouse pointer
+sudo apt-get -qq install unclutter
+
+echo "Installation complete. Please reboot."
