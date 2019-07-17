@@ -22,8 +22,6 @@ It's easy to build your own iqamah times display for your masjid. At the end of 
     ```
     git clone git@github.com:simplesalah/iqamah-times-display.git
 
-    cd iqamah-times-display
-
-    ./install.sh
+    iqamah-times-display/install.sh
     ```
 6. Click the top-left raspberry icon > Shutdown > Reboot
