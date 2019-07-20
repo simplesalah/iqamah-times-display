@@ -8,9 +8,13 @@ const url = 'https://sheets.googleapis.com/v4/spreadsheets/' +
 exports.getIqamah = (req, res) => {
   axios.get(url)
   .then((timings) => {
-    res.status(200).send(JSON.stringify(timings.data));
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(200);
+    res.send(timings.data);
   })
   .catch((error) => {
-    res.status(500).send(JSON.stringify(error));
+    res.set('Access-Control-Allow-Origin', '*');
+    res.status(500);
+    res.send(error);
   });
 };
