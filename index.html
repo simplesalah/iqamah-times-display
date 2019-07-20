@@ -5,7 +5,7 @@
 	<meta http-equiv="refresh" content="3600">
 </head>
 
-<body onload="updateTimes()">
+<body onload="updateTimes();setInterval(updateTimes, 60000);">
 	<div class="salah-times">
 	<table>
 		<tr><td></td><td>Athan</td><td>Iqamah</td>
@@ -53,38 +53,7 @@
 	<iframe src="https://docs.google.com/presentation/d/SLIDESHOW-ID-HERE/embed?start=true&loop=true&delayms=10000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 	</div>
 
-	<script>
-		function updateTimes() {
-			fetch('https://us-central1-simple-salah-1546243001528.cloudfunctions.net/getIqamah')
-			.then((resp) => resp.json())
-			.then((data) => {
-				let newTimes = data.values[0];
-				let mode = data.values[2][1];
-				let elementIds = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 
-								'english1', 'arabic1', 'english2', 'arabic2'];
-				for (let i=0; i<elementIds.length; i++) {
-					let prayerName = elementIds[i];
-					let iqamahTime = newTimes[i];
-					try {
-						document.getElementById(prayerName).textContent = iqamahTime;
-					}
-					catch (e) {
-						console.error(e);
-					}
-				}
-
-				document.getElementById("fajr-athan").textContent = newTimes["fajr-athan"];
-				document.getElementById("dhuhr-athan").textContent = newTimes["dhuhr-athan"];
-				document.getElementById("asr-athan").textContent = newTimes["asr-athan"];
-				document.getElementById("maghrib-athan").textContent = newTimes["maghrib-athan"];
-				document.getElementById("isha-athan").textContent = newTimes["isha-athan"];
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-		}
-		
-		setInterval(updateTimes, 60000);
-	</script>
+	<script type="text/javascript" src="PrayTimes.js"></script> 
+	<script type="text/javascript" src="IqamahDisplay.js"></script>
 </body>
 </html>
