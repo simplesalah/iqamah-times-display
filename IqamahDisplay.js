@@ -18,8 +18,8 @@ function updateTimes() {
         let iqamahTimes = data.values[0];
         let mode = data.values[2][1];
 
-        let elementIds = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha', 
-                        'english1', 'arabic1', 'english2', 'arabic2'];
+        let jumahElements = ['english1', 'arabic1', 'english2', 'arabic2'];
+        let elementIds = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'].concat(jumahElements);
 
         for (let i=0; i<elementIds.length; i++) {
             let prayerName = elementIds[i];
@@ -28,17 +28,20 @@ function updateTimes() {
             //update athan time 
             try {
                 document.getElementById(prayerName+'-athan').textContent = athanTimes[prayerName];
-            } catch {}
+            } catch { }
 
             //update iqamah time
             try {
-                if (mode.includes('offset')) {
-                    alert('Implement me')
+                if (mode.includes('offset') && !jumahElements.includes(prayerName)) {
+                    let athanTime = document.getElementById(prayerName+'-athan').textContent;
+                    let offset = parseInt(iqamahTime);
+                    let offsetIqamah = moment(athanTime, 'HH:mm a').add(offset, 'minutes').format('h:mm a');
+                    document.getElementById(prayerName).textContent = offsetIqamah;
                 }
                 else {
                     document.getElementById(prayerName).textContent = iqamahTime;
                 }
-            } catch {}
+            } catch { }
         }
     })
     .catch((error) => {
