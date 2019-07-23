@@ -2,7 +2,7 @@ const latitude = 37.7749; //negative value for South, positive for North
 const longitute = -122.4194; //negative value for West, positive for East
 const asrMethod = 'Standard'; //either Hanafi or Standard
 const calcMethod = 'ISNA'; //or MWL, Makkah, Karachi, etc
-const cloudFunctionUrl = 'https://us-central1-simple-salah-1546243001528.cloudfunctions.net/getIqamah';
+const iqamahTimingsURL = 'https://us-central1-simple-salah-1546243001528.cloudfunctions.net/getIqamah';
 
 function getAthanTimes() {
     prayTimes.setMethod(calcMethod); 
@@ -11,7 +11,7 @@ function getAthanTimes() {
 }
 
 function updateTimes() {
-    fetch(cloudFunctionUrl)
+    fetch(iqamahTimingsURL)
     .then((resp) => resp.json())
     .then((data) => {
         let athanTimes = getAthanTimes();
