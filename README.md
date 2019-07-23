@@ -19,12 +19,12 @@ Ever wanted an iqamah times display for your masjid? If you're computer-savvy, y
     1. Go to https://docs.google.com/spreadsheets/d/193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo/edit?usp=sharing
     2. Click File > Make a copy
     3. Click Share > Get shareable link
-    4. You will get a URL similar to (1) above. Note the part after `/d/` and before `edit`, like `193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo`. This is your `SPREADSHEET_ID` and we'll need it later.
+    4. You will get a URL similar to (i) above. Note the part after `/d/` and before `edit`, like `193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo`. This is your `SPREADSHEET_ID` and we'll need it later.
 2. Set up Google Slides for announcements
     1. Go to https://docs.google.com/presentation/d/1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0/edit
     2. Click File > Make a copy
     3. Click File > Page setup. Make sure it's 20 x 22 inches, but adjust if necessary for your display.
-    4. Click Share > Get shareable link. Note the part after `/d/` and before `edit`. We'll need it later.
+    4. Click Share > Get shareable link. Note the part after `/d/` and before `edit`. This is your `SLIDES_ID` and we'll need it later.
 
 ### (B) Set up GCP API Key
 We need this API key to read from Google Sheets.
@@ -42,7 +42,7 @@ We need this API key to read from Google Sheets.
 You should do this step if you're loading iqamah times on a publicly accessible website, and not just a display. This step just wraps the API key in a GCP Cloud Function so that the key isn't visible.
 1. In cloud.google.com search for “cloud functions” and open the section.
 2. Click "Create function", change the name to "getIqamah", set "Function to execute" to getIqamah. 
-3. Create env vars named `API_KEY` and `SPREADSHEET_ID`, and set the values to ones obtained in sections B-5 and A-1-4.
+3. Create env vars named `API_KEY` and `SPREADSHEET_ID`, and set the values to ones obtained in sections B-5 and A-1-iv.
 4. Open the getIqamah.js and package.json files from the same directory as this README. In the Cloud Function code editor, copy the code in getIqamah.js into the index.js tab, and package.json into the package.json tab.
 5. Click Deploy, wait for it to finish, click Trigger, click the URL and make sure it shows your spreadsheet timings. Note this URL for future use.
 
@@ -59,6 +59,6 @@ You should do this step if you're loading iqamah times on a publicly accessible 
 
     iqamah-times-display/install.sh
     ```
-6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your Slides ID from section A-2-4. Save & close. (TODO: add this to install script)
+6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your `SLIDES_ID` from section A-2-iv. Save & close. (TODO: add this to install script)
 7. Type `leafpad iqamah-times-display/IqamahDisplay.js`. If you set up Cloud Functions in section (D), use that URL in `iqamahTimingsURL`. Otherwise use `https://sheets.googleapis.com/v4/spreadsheets/1jXbp0_ccizf9tvHzmKuLHheJNHc2hiY3fk7a0fOQ7k0/values/Sheet1!B1:D11?majorDimension=COLUMNS&key=`, and append the `API_KEY` from section B-5. Save & close. (TODO: add this to install script)
 7. Click the top-left raspberry icon > Shutdown > Reboot
