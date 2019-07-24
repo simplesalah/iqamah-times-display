@@ -59,6 +59,6 @@ You should do this step if you're loading iqamah times on a publicly accessible 
 
     iqamah-times-display/install.sh
     ```
-6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your `SLIDES_ID` from section A-2-iv. Save & close. (TODO: add this to install script)
-7. Type `leafpad iqamah-times-display/IqamahDisplay.js`. If you set up Cloud Functions in section (D), use that URL in `iqamahTimingsURL`. Otherwise use `https://sheets.googleapis.com/v4/spreadsheets/1jXbp0_ccizf9tvHzmKuLHheJNHc2hiY3fk7a0fOQ7k0/values/Sheet1!B1:D11?majorDimension=COLUMNS&key=`, and append the `API_KEY` from section B-5. Save & close. (TODO: add this to install script)
+6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your `SLIDES_ID` from section A-2-iv. Save & close.
+7. Type `leafpad iqamah-times-display/IqamahDisplay.js`. If you set up Cloud Functions in section (D), use that URL in `iqamahTimingsURL`. Otherwise use `https://sheets.googleapis.com/v4/spreadsheets/SPREADSHEET_ID/values/Sheet1!B1:D11?majorDimension=COLUMNS&key=API_KEY`, but replace `API_KEY` and `SPREADSHEET_ID` with values obtained in sections B-5 and A-1-iv.. Save & close.
 7. Click the top-left raspberry icon > Shutdown > Reboot
