@@ -19,12 +19,12 @@ Ever wanted an iqamah times display for your masjid? If you're computer-savvy, y
     1. Go to https://docs.google.com/spreadsheets/d/193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo/edit?usp=sharing
     2. Click File > Make a copy
     3. Click Share > Get shareable link
-    4. You will get a URL similar to (i) above. Note the part after `/d/` and before `edit`, like `193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo`. This is your `SPREADSHEET_ID` and we'll need it later.
+    4. You will get a URL similar to (i) above. Note the part after `/d/` and before `/edit`, like `193VpBky_v8JTAAEjiy-g05k7eNQ7PczKqSrveZvlyGo`. This is your `SPREADSHEET_ID` and we'll need it later.
 2. Set up Google Slides for announcements
     1. Go to https://docs.google.com/presentation/d/1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0/edit
     2. Click File > Make a copy
     3. Click File > Page setup. Make sure it's 20 x 22 inches, but adjust if necessary for your display.
-    4. Click Share > Get shareable link. Note the part after `/d/` and before `edit`. This is your `SLIDES_ID` and we'll need it later.
+    4. Click Share > Get shareable link. Note the part after `/d/` and before `/edit`. This is your `SLIDES_ID` and we'll need it later.
 
 ### (B) Set up GCP API Key
 We need this API key to read from Google Sheets.
