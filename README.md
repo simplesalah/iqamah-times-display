@@ -1,5 +1,5 @@
 # Iqamah Times Display
-Ever wanted an iqamah times display for your masjid? If you're computer-savvy, you can easily build one yourself! By the end of this tutorial, you will inshaAllah be able to update iqamah timings by editing a Google spreadsheet. The display can also show announcements and flyers for events.
+Ever wanted an iqamah times display for your masjid? If you're technically-savvy, you can easily build one yourself! By the end of this tutorial, you will inshaAllah be able to update iqamah timings by editing a Google spreadsheet. The display can also show announcements and flyers for events.
 
 ## Things you need
 * Raspberry Pi 
@@ -26,21 +26,26 @@ Ever wanted an iqamah times display for your masjid? If you're computer-savvy, y
     3. Click File > Page setup. Make sure it's 20 x 22 inches, but adjust if necessary for your display.
     4. Click Share > Get shareable link. Note the part after `/d/` and before `/edit`. This is your `SLIDES_ID` and we'll need it later.
 
-### (B) Set up GCP API Key
-We need this API key to read from Google Sheets.
-1. Go to cloud.google.com, register an account. (Might need a credit card)
-2. In the search bar, type "api key", and click on "Credentials".
-3. Click "Create credentials" > "API key" > "Restrict key".
-4. Change the name to "Iqamah Display" and click "Save".
-5. Note the API Key value, we’ll need it later (`API_KEY`).
+### (B) Create a GCP account
+1. Go to https://cloud.google.com and register for an account. (Might need a credit card)
+2. Familiarize yourself with usage limits and pricing for the Sheets API and Cloud Functions. 
 
 ### (C) Enable Sheets API
-1. On cloud.google.com, search for “sheets api” and click the only result.
+1. On https://cloud.google.com, search for “sheets api” and click the only result.
 2. Click Enable
 
-### (D) Set up Cloud Function (optional)
+### (D) Set up GCP API Key
+We need this API key to read from Google Sheets.
+1. In the search bar, type "api key", click on "APIs & Services", then click "Credentials" in the sidebar. 
+2. Click "Create credentials" > "API key" > "Restrict key".
+3. Change the name to "Iqamah Display".
+4. Under "API restrictions", select "Restrict key" and choose "Google Sheets API" from the dropdown.
+5. Click "Save".
+6. Note the API Key value, we’ll need it later (`API_KEY`).
+
+### (E) Set up Cloud Function (optional)
 You should do this step if you're loading iqamah times on a publicly accessible website, and not just a display. This step just wraps the API key in a GCP Cloud Function so that the key isn't visible.
-1. In cloud.google.com search for “cloud functions” and open the section.
+1. In https://cloud.google.com search for “cloud functions” and open the section.
 2. Click "Create function", change the name to "getIqamah", set "Function to execute" to getIqamah. 
 3. Create env vars named `API_KEY` and `SPREADSHEET_ID`, and set the values to ones obtained in sections B-5 and A-1-iv.
 4. Open the getIqamah.js and package.json files from the same directory as this README. In the Cloud Function code editor, copy the code in getIqamah.js into the index.js tab, and package.json into the package.json tab.
