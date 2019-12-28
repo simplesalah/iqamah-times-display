@@ -47,7 +47,7 @@ We need this API key to read from Google Sheets.
 You should do this step if you're loading iqamah times on a publicly accessible website, and not just a display. This step just wraps the API key in a GCP Cloud Function so that the key isn't visible.
 1. In https://cloud.google.com search for “cloud functions” and open the section.
 2. Click "Create function", change the name to "getIqamah", set "Function to execute" to getIqamah. 
-3. Create env vars named `API_KEY` and `SPREADSHEET_ID`, and set the values to ones obtained in sections B-5 and A-1-iv.
+3. Create env vars named `SPREADSHEET_ID` and `API_KEY`, and set the values to ones obtained in sections A & D.
 4. Open the getIqamah.js and package.json files from the same directory as this README. In the Cloud Function code editor, copy the code in getIqamah.js into the index.js tab, and package.json into the package.json tab.
 5. Click Deploy, wait for it to finish, click Trigger, click the URL and make sure it shows your spreadsheet timings. Note this URL for future use.
 
@@ -64,6 +64,6 @@ You should do this step if you're loading iqamah times on a publicly accessible 
 
     iqamah-times-display/install.sh
     ```
-6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your `SLIDES_ID` from section A-2-iv. Save & close.
-7. Type `leafpad iqamah-times-display/IqamahDisplay.js`, find the `iqamahTimingsURL` variable. If you set up Cloud Functions in section (D), use that URL in `iqamahTimingsURL`. Otherwise use `https://sheets.googleapis.com/v4/spreadsheets/SPREADSHEET_ID/values/Sheet1!B1:D11?majorDimension=COLUMNS&key=API_KEY`, but replace `API_KEY` and `SPREADSHEET_ID` with values obtained in sections B-5 and A-1-iv. Save & close.
+6. Type `leafpad iqamah-times-display/index.html`, scroll down to the `iframe`, replace `1dqvfjWpRX2UOQMNwUeDjR28uIDgqFElDu47E2nlXRg0` with your `SLIDES_ID` from section A. Save & close.
+7. Type `leafpad iqamah-times-display/IqamahDisplay.js`, find the `iqamahTimingsURL` variable. If you set up Cloud Functions in section E, use that URL in `iqamahTimingsURL`. Otherwise use `https://sheets.googleapis.com/v4/spreadsheets/SPREADSHEET_ID/values/Sheet1!B1:D11?majorDimension=COLUMNS&key=API_KEY`, but replace `SPREADSHEET_ID` and `API_KEY` with values obtained in sections A & D. Save & close.
 7. Click the top-left raspberry icon > Shutdown > Reboot
