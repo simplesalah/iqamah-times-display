@@ -1,5 +1,5 @@
 # Iqamah Times Display
-Ever wanted an iqamah times display for your masjid? If you're technically-savvy, you can easily build one yourself! By the end of this tutorial, you will inshaAllah be able to update iqamah timings by editing a Google spreadsheet. The display can also show announcements and flyers for events.
+Ever wanted an iqamah times display for your masjid? If you're technically-savvy, you can easily build one yourself! By the end of this tutorial you will, inshaAllah, be able to update iqamah timings by editing a Google spreadsheet. The display can also show announcements and flyers for events.
 
 ## Things you need
 * Raspberry Pi 
